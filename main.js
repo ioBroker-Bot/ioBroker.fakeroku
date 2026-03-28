@@ -2,8 +2,8 @@
 /*jslint node: true */
 'use strict';
 
-var dgram = require('dgram');
-var http = require('http');
+var dgram = require('node:dgram');
+var http = require('node:http');
 var httpHeaders = require('http-headers');
 
 var utils = require('@iobroker/adapter-core'); // Get common adapter utils
@@ -418,7 +418,7 @@ function setState(device, channel, state, val, callback) {
 }
 
 function genUUID(device) {
-    var crypto = require('crypto');
+    var crypto = require('node:crypto');
     var uuid = crypto.createHash('md5').update(crypto.randomBytes(256)).digest('hex');
     for (var i = 0; i < adapter.config.devices.length; i++) {
         if (adapter.config.devices[i].name === device) {
